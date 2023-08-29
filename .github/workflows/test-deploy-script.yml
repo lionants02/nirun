@@ -17,3 +17,5 @@ jobs:
             commands: |
                 echo "Hello world!"
                 id
+                touch a
+                
