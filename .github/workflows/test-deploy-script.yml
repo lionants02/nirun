@@ -1,0 +1,19 @@
+name: test-deploy-script
+on:
+    pull_request:
+    push:
+
+jobs:
+  test-ssh:
+    runs-on: self-hosted
+    steps:
+      - uses: docker://evaneos/ssh-action:0.1.0
+        with:
+            hosts: ${{ secrets.SSH_HOST }}
+            user: ${{ secrets.SSH_USER }}
+            port: ${{ secrets.SSH_PORT }}
+            private_key: ${{ secrets.PRIVATE_SSH_KEY }}
+            known_hosts: ${{ secrets.SSH_KNOW_HOST }}
+            commands: |
+                echo "Hello world!"
+                id
