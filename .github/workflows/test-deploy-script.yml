@@ -16,6 +16,7 @@ jobs:
             SOURCE: "./"
             REMOTE_HOST: ${{ secrets.SSH_HOST }}
             REMOTE_USER: ${{ secrets.SSH_USER }}
+            REMOTE_PORT: ${{ secrets.SSH_PORT }}
             TARGET: test-copy-code/
       - name: Start Odoo 
         uses: appleboy/ssh-action@v1.0.0
