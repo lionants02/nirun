@@ -6,17 +6,17 @@ on:
 jobs:
   test-ssh:
     runs-on: self-hosted
-    environment: no-secret
+    environment: secrets
     steps:
     #   - name: Deploy code
     #     uses: easingthemes/ssh-deploy@main
       - name: Start Odoo 
         uses: appleboy/ssh-action@v1.0.0
         with:
-            host: ${{ vars.LOCAL_DEPLOY_HOST }}
-            username: ${{ vars.LOCAL_SSH_USER }}
-            key: ${{ vars.LOCAL_PRIVATE_SSH_KEY }}
-            port: ${{ vars.LOCAL_SSH_PORT }}
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USER }}
+            key: ${{ secrets.PRIVATE_SSH_KEY }}
+            port: ${{ secrets.SSH_PORT }}
             script: |
                 echo "Hello world!"
                 id
