@@ -6,6 +6,7 @@ on:
 jobs:
   test-ssh:
     runs-on: self-hosted
+    environment: no-secret
     steps:
     #   - name: Deploy code
     #     uses: easingthemes/ssh-deploy@main
